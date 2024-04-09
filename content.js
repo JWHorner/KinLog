@@ -2,15 +2,14 @@ let groupChatIdentifier = '/groupchat/'
 let kinLogPrefix = 'KinLog_';
 let kinLogSigsSuffix = '_Sigs';
 let kinLogSettingsSuffix = '_Set';
-// TODO: Use these
 let host = 'https://kindroid.ai';
 let kinUrl = `${host}/home`;
 
 function getKinOrGroup() {
-    if (window.location.href === 'https://kindroid.ai/home') {
+    if (window.location.href === kinUrl) {
         // Solo chat
         return 'k';
-    } else if (window.location.href.indexOf(`https://kindroid.ai${groupChatIdentifier}`) === 0) {
+    } else if (window.location.href.indexOf(`${host}${groupChatIdentifier}`) === 0) {
         // Group chat
         return 'g';
     }
@@ -18,10 +17,10 @@ function getKinOrGroup() {
 }
 
 function getCurrentChatId() {
-    if (window.location.href === 'https://kindroid.ai/home') {
+    if (window.location.href === kinUrl) {
         // Solo chat
         return localStorage.getItem('currentAI');
-    } else if (window.location.href.indexOf(`https://kindroid.ai${groupChatIdentifier}`) === 0) {
+    } else if (window.location.href.indexOf(`${host}${groupChatIdentifier}`) === 0) {
         // Group chat
         return window.location.href.substring(window.location.href.indexOf(groupChatIdentifier) + groupChatIdentifier.length);
     }
@@ -29,9 +28,9 @@ function getCurrentChatId() {
 }
 
 function getCurrentChatName() {
-    if (window.location.href === 'https://kindroid.ai/home') {
+    if (window.location.href === kinUrl) {
         return [...document.querySelectorAll('img[alt="play"]')].slice(-1)[0].previousElementSibling.innerText;
-    } else if (window.location.href.indexOf(`https://kindroid.ai${groupChatIdentifier}`) === 0) {
+    } else if (window.location.href.indexOf(`${host}${groupChatIdentifier}`) === 0) {
         return document.getElementsByClassName('chatScrollParent ')[0].childNodes[0].childNodes[0].innerText;
     }
     return undefined;
@@ -263,9 +262,9 @@ chrome.runtime.onMessage.addListener(
             let url = '';
             if (request.kinOrGroup === 'k') {
                 localStorage.setItem('currentAI', request.id);
-                url = 'https://kindroid.ai/home';
+                url = kinUrl;
             } else {
-                url = `https://kindroid.ai${groupChatIdentifier}${request.id}`;
+                url = `${host}${groupChatIdentifier}${request.id}`;
             }
             location.href = url;
 
