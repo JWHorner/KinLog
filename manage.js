@@ -23,12 +23,8 @@ function view(id, kinOrGroup) {
     window.close();
 }
 
-function deleteChat(id) {
-    chrome.tabs.query({ 'active': true, 'lastFocusedWindow': true }, function (tabs) {
-        chrome.tabs.sendMessage(tabs[0].id, { type: "deleteConversation", id: id }, function (response) {
-            location.href = location.href;
-        });
-    });
+function deleteChat(id, name) {
+    location.href = `deleteConfirmation.html?id=${id}&name=${encodeURIComponent(name)}&referrer=manage.html`;
 }
 
 function createButton(image, event, tooltip) {
@@ -118,7 +114,7 @@ chrome.tabs.query({ 'active': true, 'lastFocusedWindow': true }, function (tabs)
 
                 // Delete
                 evnt = function () { 
-                    deleteChat(response[i][0]) 
+                    deleteChat(response[i][0], response[i][1]) 
                 };
                 td.appendChild(createButton('images/delete.png', evnt, 'Delete chat log'));
             }
