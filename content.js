@@ -62,10 +62,6 @@ function getConversation(id) {
 function getConversationSettings(id) {
     id = id || getCurrentChatId();
     return JSON.parse(localStorage.getItem(`${kinLogPrefix}${id}${kinLogSettingsSuffix}`));
-    /*if (id) {
-        return JSON.parse(localStorage.getItem(`${kinLogPrefix}${id}${kinLogSettingsSuffix}`));
-    }
-    return JSON.parse(localStorage.getItem(`${kinLogPrefix}${getCurrentChatId()}${kinLogSettingsSuffix}`));*/
 }
 
 function setConversationSettings(len) {
@@ -85,7 +81,6 @@ function deleteConversation(id) {
 function setConversation(conversation) {
     localStorage.setItem(`${kinLogPrefix}${getCurrentChatId()}`, JSON.stringify(conversation));
     if (!getConversationSettings()) {
-        console.log(conversation);
         setConversationSettings(conversation.length);
     }
 }
@@ -141,17 +136,6 @@ function checkSpeech() {
             setConversation(conversation);
         }
     }
-
-    //let inputs = document.getElementsByTagName('input')
-
-    if (document.querySelectorAll('[placeholder="Confirmation"]') !== undefined) {
-        //console.log('deleting');
-        //alert('modal!');
-    }
-
-    /*if (document.getElementsByClassName('chakra-modal__body') !== undefined) {
-        //alert('modal!');
-    }*/
 }
 
 function getTimestamp() {
@@ -249,7 +233,6 @@ chrome.runtime.onMessage.addListener(
 
         } else if (request['type'] == 'deleteConversation') {
 
-            //setConversation([]);
             deleteConversation(!request['id'] ? getCurrentChatId() : request['id']);
             sendResponse(true);
 
@@ -273,14 +256,10 @@ chrome.runtime.onMessage.addListener(
                     ]);
                 }
             }
-            //console.log(meta);
             sendResponse(meta);
 
         } else if (request['type'] == 'moveToChat') {
 
-            //let id = request.id;
-            //let kinOrGroup = request.kinOrGroup;
-            //alert(`moving to ${id} for ${kinOrGroup}`);
             let url = '';
             if (request.kinOrGroup === 'k') {
                 localStorage.setItem('currentAI', request.id);

@@ -55,7 +55,6 @@ function deleteClicked() {
 }
 
 function manageClicked() {
-    //chrome.action.setPopup({popup: "manage.html"});
     location.href = 'manage.html'
 }
 
@@ -80,7 +79,6 @@ chrome.tabs.query({ 'active': true, 'lastFocusedWindow': true }, function (tabs)
 
             // response = [ "Chat Name", "Chat ID", "Log Size" ]
 
-            //console.log(`response: ${response}`);
             if (response !== undefined) {
                 let res = JSON.parse(response);
                 document.getElementById('currentchat').innerText = res[0];

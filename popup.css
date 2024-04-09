@@ -73,10 +73,6 @@ a {
     padding-right: 8px;
 }
 
-.grayCell {
-    /*background-color: lightgray;*/
-}
-
 .tableButton {
     cursor: pointer;
     margin-left: 3px;
