@@ -158,9 +158,8 @@ function download(extension, text, name) {
 }
 
 function downloadHeader() {
-    let header = [`Kindroid chat log downloaded with KinLog v${chrome.runtime.getManifest().version_name} Chrome Extension.`];
-    header.push('KinLog is a third-party extension and is not affiliated with Kindroid.ai in any way. Please use at your own risk.');
-    return header;
+    return [`Kindroid chat log downloaded with KinLog v${chrome.runtime.getManifest().version_name} Chrome extension.`,
+        'KinLog is a third-party extension and is not affiliated with Kindroid.ai in any way. Please use at your own risk.']
 }
 
 function downloadTxt(id, name) {
@@ -198,7 +197,12 @@ function downloadHtml(id, name) {
 }
 
 function downloadJson(id, name) {
-    let meta = { 'source': chrome.runtime.getManifest().name, 'version': chrome.runtime.getManifest().version_name, 'author': chrome.runtime.getManifest().author, url: 'https://github.com/JWHorner/KinLog' };
+    let meta = {
+        'source': chrome.runtime.getManifest().name,
+        'version': chrome.runtime.getManifest().version_name,
+        'author': chrome.runtime.getManifest().author,
+        'url': 'https://github.com/JWHorner/KinLog'
+    };
     let json = { 'about': downloadHeader(), 'meta': meta, 'chat': getConversation(id) };
     download('json', JSON.stringify(json), name);
 }
