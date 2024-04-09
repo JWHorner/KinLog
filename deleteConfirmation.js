@@ -23,3 +23,7 @@ document.getElementById('cancel').addEventListener('click', function(){
 document.getElementById('delete').addEventListener('click', function(){
     deleteConversation();
 });
+
+setTimeout(function(){
+    document.getElementById('delete').attributes.removeNamedItem('disabled');
+}, 1000)

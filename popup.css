@@ -74,7 +74,6 @@ a {
 }
 
 .tableButton {
-    cursor: pointer;
     margin-left: 3px;
 }
 
@@ -83,12 +82,21 @@ a {
     color: blueviolet;
 }
 
+.deleteButton:disabled,
+.deleteButton[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+
 /* Tooltips */
 
 .tooltip {
     position: relative;
     display: inline-block;
     border-bottom: 1px dotted black;
+    cursor: pointer;
   }
   
   .tooltip .tooltiptext {

@@ -33,7 +33,7 @@ function createButton(image, event, tooltip) {
     img = document.createElement('img');
     img.setAttribute('src', image)
     img.className = 'tableButton';
-    img.addEventListener('click', () => {
+    div.addEventListener('click', () => {
         event();
     });
     div.appendChild(img)
