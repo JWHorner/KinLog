@@ -28,7 +28,6 @@ document.getElementById('delete').innerText = seconds;
 
 let timer = setInterval(function(){
     document.getElementById('delete').innerText = --seconds;
-    console.log(seconds);
     if (seconds === 0) {
         document.getElementById('delete').innerText = 'Confirm';
         document.getElementById('delete').attributes.removeNamedItem('disabled');
