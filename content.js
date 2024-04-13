@@ -88,12 +88,16 @@ function createSignature(convo) {
     return `${convo[0]}_${convo[1]}`;
 }
 
+function createMd5Signature(convo) {
+    return MD5.generate(`${convo[0]}_${convo[1]}`);
+}
+
 function addSignature(convo) {
     let speechSignatures = getSpeechSignatures();
     if (speechSignatures.length > 10) {
         speechSignatures.shift();
     }
-    speechSignatures.push(createSignature(convo));
+    speechSignatures.push(createMd5Signature(convo));
     setSpeechSignatures(speechSignatures);
 }
 
@@ -116,7 +120,8 @@ function getSpeechSignatures() {
 
 function signatureExists(convo) {
     let speechSignatures = getSpeechSignatures();
-    return speechSignatures.includes(createSignature(convo));
+    return speechSignatures.includes(createSignature(convo))
+        || speechSignatures.includes(createMd5Signature(convo));
 }
 
 function checkSpeech() {

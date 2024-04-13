@@ -7,6 +7,7 @@
   * Italics added to HTML actions.
   * Chat management and chat switching page added.
   * Chat log deletion confirmation dialog.
+  * Conversation signatures compressed to MD5.
   * Moved source code, README and change log to repo.
 
 ## 1.0 beta
