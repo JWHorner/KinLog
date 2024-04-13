@@ -74,7 +74,6 @@ function setConversationSettings(len) {
 function deleteConversation(id) {
     localStorage.removeItem(`${kinLogPrefix}${id}`);
     localStorage.removeItem(`${kinLogPrefix}${id}${kinLogSettingsSuffix}`);
-    //localStorage.removeItem(`${kinLogPrefix}${id}${kinLogSigsSuffix}`);
 }
 
 function setConversation(conversation) {
