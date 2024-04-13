@@ -66,6 +66,10 @@ The change log can be found [here](https://github.com/JWHorner/KinLog/blob/main/
 
 > No, they're stored in your Chrome browser. KinLog does not communicate with the internet at all, as demonstrated by it's approval for publishing on the Chrome app store.
 
+**I installed the extension and my chat log only includes the last 10 speech bubbles.**
+
+> KinLog is a web scraper. It can only log what it sees when running. It doesn't have access to your deep chat history. To obtain a full downloadable chat log, make sure the extension is running from the start of the conversation to the end. Do not continue the conversation on your phone or another browser, as KinLog will not be able to see it and that chat will be missing when you download the log.
+
 **Will there be a Firefox version?**
 
 > Maybe. Maybe not. There's no current plan or timeline.
