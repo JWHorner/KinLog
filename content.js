@@ -4,6 +4,7 @@ let kinLogSigsSuffix = '_Sigs';
 let kinLogSettingsSuffix = '_Set';
 let host = 'https://kindroid.ai';
 let kinUrl = `${host}/home`;
+let signaturesSize = 10;
 
 function getKinOrGroup() {
     if (window.location.href === kinUrl) {
@@ -67,7 +68,7 @@ function setConversationSettings(len) {
     localStorage.setItem(`${kinLogPrefix}${getCurrentChatId()}${kinLogSettingsSuffix}`, JSON.stringify([
         getCurrentChatName(),
         getKinOrGroup(),
-        len < 10 ? new Date().toISOString() : ''
+        len < signaturesSize ? new Date().toISOString() : ''
     ]));
 }
 
@@ -93,7 +94,7 @@ function createMd5Signature(convo) {
 
 function addSignature(convo) {
     let speechSignatures = getSpeechSignatures();
-    if (speechSignatures.length > 10) {
+    if (speechSignatures.length > (signaturesSize + 1)) {
         speechSignatures.shift();
     }
     speechSignatures.push(createMd5Signature(convo));
@@ -124,8 +125,8 @@ function signatureExists(convo) {
 }
 
 function checkSpeech() {
-    // Get last 10 images
-    let images = [...document.querySelectorAll('img[alt="edit"],img[alt="play"]')].slice(-10);
+    // Get last x images
+    let images = [...document.querySelectorAll('img[alt="edit"],img[alt="play"]')].slice(-signaturesSize);
 
     for (let i = 0; i < images.length; i++) {
         // Return to speech bubble
