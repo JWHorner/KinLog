@@ -208,7 +208,7 @@ function downloadJson(id, name) {
         'source': chrome.runtime.getManifest().name,
         'version': chrome.runtime.getManifest().version_name,
         'author': chrome.runtime.getManifest().author,
-        'url': 'https://github.com/JWHorner/KinLog'
+        'url': chrome.runtime.getManifest().homepage_url
     };
     let json = { 'about': downloadHeader(), 'meta': meta, 'chat': getConversation(id) };
     download('json', JSON.stringify(json), name);
