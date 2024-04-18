@@ -1,0 +1,125 @@
+body {
+    background-color: black;
+    color: white;
+    min-width: 300px;
+}
+
+.title {
+    height: 40px;
+    vertical-align: top;
+    margin-right: 4px;
+}
+
+.disclaimer {
+    color: gray;
+    font-style: italic;
+    font-size: smaller;
+    margin-top: 4px;
+}
+
+.error {
+    color: red;
+}
+
+a {
+    color: lightblue;
+}
+
+.chatSize {
+    font-size: x-small;
+}
+
+#chatmain {
+    text-align: center;
+    font-size: medium;
+}
+
+.downloads {
+    margin-top: 6px;
+}
+
+.downloadButton {
+    background-color: blueviolet;
+    color: white;
+}
+
+.manageButton {
+    background-color: gray;
+    color: white;
+}
+
+.cancelButton {
+    background-color: gray;
+    color: white;
+    margin: 6 0 6 0;
+}
+
+.floatRight {
+    float: right;
+}
+
+.deleteButton {
+    margin-top: 6px;
+    background-color: firebrick;
+    color: white;
+}
+
+.manageTable {
+    font-size: small;
+    white-space: nowrap;
+}
+
+.cellPadRight {
+    padding-right: 8px;
+}
+
+.tableButton {
+    margin-left: 3px;
+}
+
+.manageHeaderCell {
+    font-weight: bold;
+    color: blueviolet;
+}
+
+.confirmDeleteButton:disabled,
+.confirmDeleteButton[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.confirmDeleteButton {
+    width: 62px;
+}
+
+/* Tooltips */
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    cursor: pointer;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: -20%;
+    left: -10px;
+    margin-left: -130px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
