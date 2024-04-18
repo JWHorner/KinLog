@@ -43,7 +43,9 @@ function getChatSize(id) {
     if (!chat) {
         return '0.00 KB';
     }
-    return `${(chat.length / 1024).toFixed(2)} KB`;
+    let kb = (chat.length / 1024);
+    let size = kb < 1024 ? `${kb.toFixed(2)} KB` : `${(kb / 1024).toFixed(2)} MB`;
+    return size
 }
 
 function setSpeechSignatures(signatures) {
