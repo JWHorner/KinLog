@@ -72,7 +72,7 @@ The change log can be found [here](https://github.com/JWHorner/KinLog/blob/main/
 
 **Will there be a Firefox version?**
 
-> Maybe. Maybe not. There's no current plan or timeline.
+> Maybe. Maybe not. Depends on the demand.
 
 **Will there be an Opera/Safari/Edge version?**
 
@@ -80,7 +80,7 @@ The change log can be found [here](https://github.com/JWHorner/KinLog/blob/main/
 
 ## Roadmap
 
-  * No current enhancements planned.
+  * Handle speech regenerations.
 
 ## Contact
 
