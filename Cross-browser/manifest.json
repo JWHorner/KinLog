@@ -4,7 +4,7 @@
     "description": "Allows the saving and downloading of Kindroid.ai chats.",
     "author": "john.horner@outlook.com",
     "homepage_url": "https://github.com/JWHorner/KinLog",
-    "version": "1.1",
+    "version": "1.2",
     "icons": {
         "16" : "images/icon_16.png",
         "32" : "images/icon_32.png",
